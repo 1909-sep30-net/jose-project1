@@ -12,17 +12,6 @@ namespace Old_Record_Store.App
     {
         static void Main(string[] args)
         {
-            try
-            {
-                int zero = 0;
-                int result = 5 / zero;
-            }
-            catch (DivideByZeroException ex)
-            {
-                Logger logger = LogManager.GetCurrentClassLogger();
-                logger.ErrorException("test divide by zero ex", ex);
-                Console.WriteLine("Divide by zero exception handled, more details on the log file");
-            }
 
             using IRecordStoreRepository recordStoreRepository = Dependencies.CreateRestaurantRepository();
             do
@@ -141,10 +130,8 @@ namespace Old_Record_Store.App
                                 Console.WriteLine("Added " + amountSelection + " to the Shopping List");
                                 amountList.Insert(0,amountSelection);
                             recordStoreRepository.AddToOrder(customerInput, locationinput, recordList, amountList);
-                            //have to create an order then order history
-                            //add record from location into order
+         
                         }
-                        recordStoreRepository.AddToOrder(customerInput, locationinput, recordList, amountList);
                         break;
 
                     case "e":
@@ -165,10 +152,21 @@ namespace Old_Record_Store.App
                         int locationID = Int32.Parse(Console.ReadLine());
                         recordStoreRepository.DisplayOrderHistoryByLocation(locationID);
                         break;
+                    case "?":
+                        try
+                        {
+                            int zero = 0;
+                            int result = 5 / zero;
+                        }
+                        catch (DivideByZeroException ex)
+                        {
+                            Logger logger = LogManager.GetCurrentClassLogger();
+                            logger.ErrorException("test divide by zero ex", ex);
+                            Console.WriteLine("Divide by zero exception handled, more details on the log file");
+                        }
+                        break;
                     case "h":
-
                             Environment.Exit(0);
-
                         break;
                 }
             } while (true);

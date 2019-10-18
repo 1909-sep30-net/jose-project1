@@ -49,7 +49,6 @@ namespace Old_Record_Store_DataAccess.Repositories
                     // _dbcontext.Inventory.Update(_dbcontext.Inventory.Find(_dbcontext.Inventory.Find(mappedOrderHistory.RecordId, locationID).Stock = _dbcontext.Inventory.Find(mappedOrderHistory.RecordId, locationID).Stock - customerOrder.RecordAmount);
                     //update the stock -> _dbcontext.inventory.Update(mappedHistory.RecordID, locationID).stock
                     var InventoryToModify = _dbcontext.Inventory.Find(mappedOrderHistory.RecordId, locationID);
-                    Console.WriteLine(_dbcontext.Inventory.Find(mappedOrderHistory.RecordId, locationID).Stock);
                     InventoryToModify.Stock = InventoryToModify.Stock - customerOrder.RecordAmount;
                     _dbcontext.SaveChanges();
                     //make sure its entity object, gotta map maybe
