@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Old_Record_Store.Library
 {
-    class Inventory
+    public class Inventory
     {
         public int Stock { get; set; }
         public int InventoryId { get; set; }

@@ -22,14 +22,6 @@ namespace Old_Record_Store_DataAccess.Entities
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Records> Records { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:farrosql.database.windows.net,1433;Initial Catalog=RecordStore;Persist Security Info=False;User ID=farro;Password=13021302loL;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

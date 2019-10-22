@@ -5,9 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Old_Record_Store.Library;
+using Old_Record_Store_DataAccess.Entities;
+using Old_Record_Store_DataAccess.Repositories;
 
 namespace Old_Record_Store.WebApp
 {
@@ -23,7 +27,19 @@ namespace Old_Record_Store.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("RecordStore");
+            services.AddDbContext<RecordStoreContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+
+            services.AddScoped<IRecordStoreRepository, RecordStoreRepository>();
             services.AddControllersWithViews();
+            
+            //services.AddDbContext<RecordDbContext>(options =>
+            //{
+            //    options.UseSqlServer(connectionString);
+            //})
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

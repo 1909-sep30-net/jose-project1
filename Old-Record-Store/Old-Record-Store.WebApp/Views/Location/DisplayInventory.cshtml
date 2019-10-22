@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Old_Record_Store.WebApp.Models.InventoryViewModel>
+
+@{
+    ViewData["Title"] = "DisplayInventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<h1>Displaying Inventory from Location</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+    </dl>
+</div>
+<table>
+    <thead>
+    <th> Stock</th>
+    <th>Record ID</th>
+    <th>Location ID</th>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-sm-10">
+                @Html.DisplayFor(model => item.Stock)
+            </td>
+
+            <td class="col-sm-10">
+                @Html.DisplayFor(model => item.RecordId)
+            </td>
+
+            <td class="col-sm-10">
+                @Html.DisplayFor(model => item.LocationId)
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
+</div>

@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Old_Record_Store.WebApp</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Soft Machine Record System</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,8 +21,35 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Customer
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Create">Add Customer</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Index">View Customer List</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetCustomerSearch">Search Customer</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetPlaceOrder">Place an order</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Location
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="Index">Location List</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="GetLocationID">Location Order History</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="GetInventoryLocationID">Show Inventory from Location</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Orders
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="OrderDetails">View Order Details</a>
+                            </div>
+
                         </li>
                     </ul>
                 </div>

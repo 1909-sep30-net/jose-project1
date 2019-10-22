@@ -1,0 +1,35 @@
+﻿@model Old_Record_Store.WebApp.Models.OrderHistoryViewModel
+
+@{
+    ViewData["Title"] = "ViewOrderDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Displaying selected order details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RecordAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RecordId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
+</div>

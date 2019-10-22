@@ -9,24 +9,27 @@ namespace Old_Record_Store.Library
 
         //Customer Methods
         void AddCustomer(Customer customer);
+        
+        List<Inventory> DisplayInventoryFromLocation(int locID);
 
         //Prints out the list of customers, does not display ID.
-        void DisplayCustomers();
+        List<Customer> DisplayCustomers();
 
         //Utilizes a field to look up a customer, iterates through customer list and checks if it is there
-        void SeachCustomer(string field);
+        Customer SeachCustomer(string field);
 
         //Location Methods
-        void DisplayOrderHistoryByCustomer(int customerID);
+        OrderHistory DisplayOrderHistoryDetails(int orderID);
+        List<Orders> DisplayOrderHistoryByCustomer(int customerID);
 
-        void DisplayOrderHistoryByLocation(int locationID);
+        List<Orders> DisplayOrderHistoryByLocation(int locationID);
 
-        void AddToOrder(int customerID, int locationID, List<int> recordID, List<int> amounts);
+        OrderHistory AddToOrder(int customerID, int locationID, int recordID, int amounts);
         //Inventory
-        void DisplayLocations();
+        List<Location> DisplayLocations();
         //OrderHistory
         void DisplayRecords(int locationID);
-        void DisplayOrderDetails(int OrderID);
+        Orders DisplayOrderDetails(int OrderID);
         void DisplayOrderList();
         void Save();
 
