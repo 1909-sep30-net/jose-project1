@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>GetCustomerID</h1>
+<h1>Please input a Customer ID to look up an order history</h1>
 
-<h4>FormCustomerID</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="GetCUstomerOrderHistory" asp-controller="Customer">
+        <form asp-action="GetCustomerOrderHistory" asp-controller="Customer">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CustomerID" class="control-label"></label>

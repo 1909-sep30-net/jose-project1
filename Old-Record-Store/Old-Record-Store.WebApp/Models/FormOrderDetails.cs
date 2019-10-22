@@ -8,6 +8,7 @@ namespace Old_Record_Store.WebApp.Models
 {
     public class FormOrderDetails
     {
+        [Required]
         [Display(Name = "Please Input the Order ID you wish to see the details for: ")]
         public int OrderID { get; set; }
     }

@@ -179,7 +179,6 @@ namespace Old_Record_Store_DataAccess.Repositories
             {
                 Logger logger = LogManager.GetCurrentClassLogger();
                 logger.ErrorException("Argument Null Exception! Careful", ex);
-                Console.WriteLine("Done");
                 return null;
             }
         }

@@ -64,7 +64,8 @@ namespace Old_Record_Store_DataAccess
                 OrderId = order.OrderId,
                 CustomerId = order.CustomerId,
                 LocationId = order.LocationId,
-                OrderTotal = order.OrderTotal
+                OrderTotal = order.OrderTotal,
+                Date = order.Date
             };
         }
 
@@ -75,7 +76,8 @@ namespace Old_Record_Store_DataAccess
                 OrderId = order.OrderId,
                 CustomerId = order.CustomerId,
                 LocationId = order.LocationId,
-                OrderTotal = order.OrderTotal
+                OrderTotal = order.OrderTotal,
+                Date = order.Date
             };
         }
         public static Old_Record_Store.Library.OrderHistory MapOrderHistoryWithEntity(Entities.OrderHistory order)

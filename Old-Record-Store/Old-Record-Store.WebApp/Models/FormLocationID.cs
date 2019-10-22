@@ -8,6 +8,7 @@ namespace Old_Record_Store.WebApp.Models
 {
     public class FormLocationID
     {
+        [Required]
         [Display(Name = "Please Input a Location ID to look-up the order history")]
         public int LocationID { get; set; }
     }

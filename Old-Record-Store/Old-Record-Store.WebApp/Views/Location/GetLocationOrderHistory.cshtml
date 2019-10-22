@@ -23,33 +23,26 @@
     <thead>
     <th> Order ID</th>
     <th> Date </th>
-    <th> Order Total </th>
     <th> Customer ID</th>
     <th> Location ID </th>
     </thead>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td class="col-sm-10">
-                @Html.DisplayFor(model => item.OrderId)
-            </td>
-
-            <td class="col-sm-10">
-                @Html.DisplayFor(model => item.Date)
-            </td>
-
-            <td class="col-sm-10">
-                @Html.DisplayFor(model => item.OrderTotal)
-            </td>
-
-            <td class="col-sm-10">
-                @Html.DisplayFor(model => item.CustomerId)
-            </td>
-            <td class="col-sm-10">
-                @Html.DisplayFor(model => item.LocationId)
-            </td>
-        </tr>
+<tr>
+    <td class="col-sm-10">
+        @Html.DisplayFor(model => item.OrderId)
+    </td>
+    <td class="col-sm-10">
+        @Html.DisplayFor(model => item.Date)
+    </td>
+    <td class="col-sm-10">
+        @Html.DisplayFor(model => item.CustomerId)
+    </td>
+    <td class="col-sm-10">
+        @Html.DisplayFor(model => item.LocationId)
+    </td>
+</tr>
     }
 </table>
 <div>

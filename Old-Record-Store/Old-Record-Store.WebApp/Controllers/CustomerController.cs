@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NLog;
 using Old_Record_Store.Library;
 using Old_Record_Store.WebApp.Models;
 
 namespace Old_Record_Store.WebApp.Controllers
 {
+
     public class CustomerController : Controller
     {
         private readonly IRecordStoreRepository _repository;
@@ -58,18 +60,28 @@ namespace Old_Record_Store.WebApp.Controllers
         {
             return View(getID);
         }
-
         public ActionResult ViewOrderDetails(FormOrderDetails getID)
         {
-            var orderDetails = _repository.DisplayOrderHistoryDetails(getID.OrderID);
-                 var custOrderModel = new OrderHistoryViewModel()
-                 {
-                     OrderId = orderDetails.OrderId,
-                     RecordId = orderDetails.RecordId,
-                     RecordAmount = orderDetails.RecordAmount,
-                     OrderRecordId = orderDetails.OrderRecordId
-                 };
-            return View(custOrderModel);
+            try
+            {
+
+                var orderDetails = _repository.DisplayOrderHistoryDetails(getID.OrderID);
+                var custOrderModel = new OrderHistoryViewModel()
+                {
+                    OrderId = orderDetails.OrderId,
+                    RecordId = orderDetails.RecordId,
+                    RecordAmount = orderDetails.RecordAmount,
+                    OrderRecordId = orderDetails.OrderRecordId
+                };
+                
+                return View(custOrderModel);
+            }
+            catch (System.NullReferenceException ex)
+            {
+                Logger logger = LogManager.GetCurrentClassLogger();
+                logger.ErrorException("Argument Null Exception! Careful", ex);
+                return View();
+            }
         }
         public ActionResult PlaceOrder(FormPlaceOrder getID)
         {
@@ -85,7 +97,7 @@ namespace Old_Record_Store.WebApp.Controllers
                 OrderRecordId = custOrder.OrderRecordId,
                 OrderId = custOrder.OrderId,
                 RecordId = custOrder.RecordId,
-                RecordAmount = custOrder.RecordAmount,
+                RecordAmount = custOrder.RecordAmount
             };
 
             // Display Order Details with Order ID from AddToOrder
@@ -99,17 +111,27 @@ namespace Old_Record_Store.WebApp.Controllers
          */
         public ActionResult Details(string fullName)
         {
-            Customer customer = _repository.SeachCustomer(fullName);
-            var custModel = new CustomerViewModel()
+            try
+            { 
+                Customer customer = _repository.SeachCustomer(fullName);
+                var custModel = new CustomerViewModel()
+                {
+                    FullName = customer.FullName,
+                    Address = customer.Address,
+                    Email = customer.Email,
+                    Phone = customer.Phone,
+                    CustomerId = customer.CustomerID
+                };
+                return View(custModel);
+            }
+            catch(NullReferenceException ex)
             {
-                FullName = customer.FullName,
-                Address = customer.Address,
-                Email = customer.Email,
-                Phone = customer.Phone,
-                CustomerId = customer.CustomerID
-            };
-
-            return View(custModel);
+                Logger logger = LogManager.GetCurrentClassLogger();
+                logger.ErrorException("Exception handled, Careful", ex);
+                return View();
+            }
+   
+            
         }
 
 
@@ -126,7 +148,8 @@ namespace Old_Record_Store.WebApp.Controllers
                 OrderId = x.OrderId,
                 LocationId = x.LocationId,
                 CustomerId = x.CustomerId,
-                OrderTotal = x.OrderTotal
+                OrderTotal = x.OrderTotal,
+                Date = x.Date
             });
 
             return View(orderModelList);

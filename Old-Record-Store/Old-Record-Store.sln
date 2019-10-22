@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Old-Record-Store.App", "Old-Record-Store\Old-Record-Store.App.csproj", "{83BF2D36-F5A2-43BF-B14D-7010A0768D22}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Old-Record-Store.Library", "Old-Record-Store.Library\Old-Record-Store.Library.csproj", "{601E2EE8-03C6-4DA9-A7F8-B27D26E86FA2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreTests", "StoreTests\StoreTests.csproj", "{F71B7610-2B86-498A-BEDF-7D6EEA4D980C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Old-Record-Store-DataAccess", "Old-Record-Store-DataAccess\Old-Record-Store-DataAccess.csproj", "{2EAD8CCF-AFBE-45BF-BF9D-E820D89872E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Old-Record-Store.WebApp", "Old-Record-Store.WebApp\Old-Record-Store.WebApp.csproj", "{A73C68AC-9A53-47FA-B42E-2F77EE964A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Old-Record-Store.WebApp", "Old-Record-Store.WebApp\Old-Record-Store.WebApp.csproj", "{A73C68AC-9A53-47FA-B42E-2F77EE964A8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83BF2D36-F5A2-43BF-B14D-7010A0768D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83BF2D36-F5A2-43BF-B14D-7010A0768D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83BF2D36-F5A2-43BF-B14D-7010A0768D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83BF2D36-F5A2-43BF-B14D-7010A0768D22}.Release|Any CPU.Build.0 = Release|Any CPU
 		{601E2EE8-03C6-4DA9-A7F8-B27D26E86FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{601E2EE8-03C6-4DA9-A7F8-B27D26E86FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{601E2EE8-03C6-4DA9-A7F8-B27D26E86FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU

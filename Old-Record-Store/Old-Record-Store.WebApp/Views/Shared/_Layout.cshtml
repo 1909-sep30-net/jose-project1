@@ -29,6 +29,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Create">Add Customer</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Index">View Customer List</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetCustomerSearch">Search Customer</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetCustomerID">Find Customer Order History</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetPlaceOrder">Place an order</a>
                             </div>
                         </li>
@@ -61,12 +62,6 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Old_Record_Store.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -8,6 +8,7 @@ namespace Old_Record_Store.WebApp.Models
 {
     public class FormInventoryLocationID
     {
+        [Required]
         [Display(Name = "Please Input the Location ID to look up the inventory")]
         public int LocationID { get; set; }
     }

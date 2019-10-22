@@ -75,6 +75,8 @@ namespace Old_Record_Store.WebApp.Controllers
                 OrderId = x.OrderId,
                 LocationId = x.LocationId,
                 CustomerId = x.CustomerId,
+                OrderTotal = x.OrderTotal,
+                Date = x.Date
             });
 
             return View(orderModelList);
