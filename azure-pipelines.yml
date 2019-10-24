@@ -1,0 +1,43 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: cd Old-Record-Store
+          dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+  #have recordstore test proect
+  #script: dotnet test
+  #displayName: dotnet test
+  #workingDirectory: RestaurantReview
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './Old-Record-Store'
+
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(7b6b20dd-8eaa-42bc-be67-56cb3efa9f4f)'
+    appType: 'webApp'
+    WebAppName: 'kinkyshaming42069'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+- task: DotNetCoreCLI@2
+  displayName: dotnet publish + zip
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: true
