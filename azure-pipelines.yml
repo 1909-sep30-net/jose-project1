@@ -21,11 +21,6 @@ steps:
   #script: dotnet test
   #displayName: dotnet test
   #workingDirectory: RestaurantReview
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: './Old-Record-Store'
-
 
 - task: AzureRmWebAppDeployment@4
   inputs:
