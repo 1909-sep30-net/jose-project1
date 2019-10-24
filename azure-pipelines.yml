@@ -21,7 +21,12 @@ steps:
   #script: dotnet test
   #displayName: dotnet test
   #workingDirectory: RestaurantReview
-
+- task: DotNetCoreCLI@2
+  displayName: dotnet publish + zip
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: true
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
@@ -30,9 +35,3 @@ steps:
     WebAppName: 'kinkyshaming42069'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
-- task: DotNetCoreCLI@2
-  displayName: dotnet publish + zip
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    zipAfterPublish: true
