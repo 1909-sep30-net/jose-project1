@@ -24,12 +24,14 @@ steps:
     projectName: 'record store'
 #    extraProperties: sonar.exclusions 
 
-
 - script: cd Old-Record-Store
           dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  displayName: Publish SonarCloud quality gate result
 
 - task: DotNetCoreCLI@2
   displayName: dotnet publish + zip
@@ -37,13 +39,6 @@ steps:
     command: 'publish'
     publishWebProjects: true
     zipAfterPublish: true
-
-
-
-- task: SonarCloudPublish@1
-  displayName: Publish SonarCloud quality gate result
-
-
 
 
 - task: AzureRmWebAppDeployment@4
