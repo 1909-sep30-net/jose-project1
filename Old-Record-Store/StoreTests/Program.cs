@@ -29,18 +29,18 @@ namespace StoreTests
 
         //Order.PlaceOrder(cust1, location1, recordlist, 1);
 
-        [Fact]
-        public void DisplayShouldDisplay()
-        {
-            //Arrange
-            var c = new Customer();
-            c.FullName = "111";
+        //[Fact]
+        //public void DisplayShouldDisplay()
+        //{
+        //    //Arrange
+        //    var c = new Customer();
+        //    c.FullName = "111";
 
-            //Act
-            Customer.AddCustomer("111", "111", "111", "111");
+        //    //Act
+        //    Customer.AddCustomer("111", "111", "111", "111");
 
-            //Assert
-            Assert.Equal("111", c.FullName);
-        }
+        //    //Assert
+        //    Assert.Equal("111", c.FullName);
+        //}
     }
 }
