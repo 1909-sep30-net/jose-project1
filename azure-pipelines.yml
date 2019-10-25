@@ -28,6 +28,8 @@ steps:
           dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
+- task: SonarCloudAnalyze@1
+
 - task: DotNetCoreCLI@2
   displayName: dotnet publish + zip
   inputs:
@@ -35,7 +37,7 @@ steps:
     publishWebProjects: true
     zipAfterPublish: true
 
-- task: SonarCloudAnalyze@1
+
 
 - task: SonarCloudPublish@1
   displayName: Publish SonarCloud quality gate result
