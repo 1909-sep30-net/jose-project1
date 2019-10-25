@@ -30,7 +30,7 @@ steps:
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-  workingDirectory: ./Old-Record-Store.WebApp
+  workingDirectory: ./Old-Record-Store
 
 
 - task: SonarCloudAnalyze@1
