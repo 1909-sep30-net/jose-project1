@@ -14,7 +14,13 @@ variables:
 
 steps:
 
-
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud-josefarro'
+    organization: '13021302lol'
+    scannerMode: 'MSBuild'
+    projectKey: 'josefarro.123'
+    projectName: 'record store'
 
 
 - script: cd Old-Record-Store
