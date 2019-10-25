@@ -28,13 +28,7 @@ steps:
           dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-  #have recordstore test proect
-  #script: dotnet test
-  #displayName: dotnet test
-  #workingDirectory: RestaurantReview
-
 - task: SonarCloudAnalyze@1
-
 
 - task: SonarCloudPublish@1
   displayName: Publish SonarCloud quality gate result
