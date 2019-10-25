@@ -32,8 +32,6 @@ steps:
 
 - task: SonarCloudPublish@1
   displayName: Publish SonarCloud quality gate result
-  inputs:
-    pollingTimeoutSec: '300'
 
 
 - task: DotNetCoreCLI@2
